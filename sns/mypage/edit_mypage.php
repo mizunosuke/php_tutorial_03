@@ -57,12 +57,12 @@ if(!empty($_SESSION)) {
                 }
             }
 
-            $sql03 = 'UPDATE mypage_table SET nickname=:nickname, area=:area, intro=:intro, image=:image WHERE userid=:userid;';
+            $sql03 = 'UPDATE mypage_table SET nickname=:nickname, area=:area, intro=:intro, image=:imagefile WHERE userid=:userid;';
             $stmt03 = $pdo->prepare($sql03);
             $stmt03->bindValue(":nickname",$_POST["nickname"]);
             $stmt03->bindValue(":area",$_POST["area"]);
             $stmt03->bindValue(":intro",$_POST["comment"]);
-            $stmt03->bindValue(":image",$up_file);
+            $stmt03->bindValue(":imagefile",$up_file);
             $stmt03->bindValue(":userid",$_SESSION["id"]);
 
             $stmt03->execute();
